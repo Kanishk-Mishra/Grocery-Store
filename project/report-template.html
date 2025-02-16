@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        @page {
+            @top-left {
+                background: #FFBD59;
+                content: counter(page);
+                height: 1cm;
+                text-align: center;
+                width: 1cm;
+            }
+
+            @top-center {
+                background: #FFBD59;
+                content: '';
+                display: block;
+                height: .05cm;
+                opacity: .5;
+                width: 100%;
+            }
+
+            @top-right {
+                content: string(heading);
+                font-size: 9pt;
+                height: 1cm;
+                vertical-align: middle;
+                width: 100%;
+            }
+        }
+
+        @page: first {
+            background-size: cover;
+            margin: 0;
+        }
+
+        @page chapter {
+            background: #FFBD59;
+            margin: 0;
+
+            @top-left {
+                content: none;
+            }
+
+            @top-center {
+                content: none;
+            }
+
+            @top-right {
+                content: none;
+            }
+        }
+
+        html {
+            color: #393939;
+            font-family: "Noto sans", sans-serif;
+            font-size: 11pt;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        h1 {
+            color: #FFBD59;
+            font-size: 38pt;
+            margin: 5cm, 2cm, 0, 2cm;
+            page: no-chapter;
+            width: 100%;
+        }
+
+        h2,
+        h3,
+        h4 {
+            color: black;
+            font-weight: 400;
+        }
+
+        h2 {
+            break-before: always;
+            font-size: 28pt;
+            
+        }
+
+        h3 {
+            font-weight: 300;
+            font-size: 15pt;
+        }
+
+        h4 {
+            font-size: 13pt;
+        }
+
+        #cover {
+            align-content: space-between;
+            display: flex;
+            flex-wrap: wrap;
+            height: 297mm;
+        }
+
+        #cover footer {
+            background: #FFBD59;
+            flex: 1 50%;
+            margin: 0 -2cm;
+            padding: 1cm 0;
+            padding-left: 3cm;
+        }
+
+        #contents {
+            break-after: left;
+        }
+
+        #contents h2 {
+            font-size: 20pt;
+            font-weight: 400;
+            margin-bottom: 3cm;
+        }
+
+        #contents h3 {
+            font-weight: 500;
+            margin: 3em 0 1em;
+        }
+
+        #contents h3::before {
+            background: #FFBD59;
+            content: '';
+            display: block;
+            height: .08cm;
+            margin-bottom: .25cm;
+            width: 2cm;
+        }
+
+        #contents ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #contents ul li {
+            border-top: .25pt solid #c1c1c1;
+            margin: .25cm 0;
+            padding-top: .25cm;
+        }
+
+        #contents ul li::before {
+            color: #FFBD59;
+            content: '* ';
+            font-size: 40pt;
+            line-height: 16pt;
+            vertical-align: bottom;
+        }
+
+        #contents ul li a {
+            color: inherit;
+            text-decoration-line: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <article id="cover">
+        <h1>{{ data.buyer }}</h1>
+        <footer>
+            GroceryStore.com | http://127.0.0.1:5000/
+        </footer>
+    </article>
+    <article id="contents">
+        <h2>Monthly report of Product bought</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Mrp</th>
+                </tr>
+            </thead>
+
+            <body>
+            {% for purchase in data.purchases %}
+                <tr>
+                    <td>{{ purchase.name }}</td>
+                    <td>{{ purchase.quantity }}</td>
+                    <td>{{ purchase.mrp }}</td>
+                </tr>
+            {% endfor %}
+            </body>
+        </table>
+    </article>
+</body>
+
+</html>
