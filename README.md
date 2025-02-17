@@ -1,6 +1,6 @@
 # Grocery Store Web Application
 
-[![Watch the video](https://i.ibb.co/zhfGBkpy/Screenshot-2025-02-17-040819.png)]([https://drive.google.com/file/d/1KnQvIeLW85F3PuPSA_C9XC82dFLIECPb/view?usp=sharing](https://youtu.be/by2EVl3OcAs?si=7lEhR7rxzWVMuAZE))
+[![Watch the video](https://i.ibb.co/zhfGBkpy/Screenshot-2025-02-17-040819.png)]([https://youtu.be/by2EVl3OcAs?si=7lEhR7rxzWVMuAZE])
 
 ## Introduction
 The **GroceryStore** is a web-based application developed using **Vue.js** for the frontend and **Flask** (a Python-based web framework) for the backend. The application allows users to browse and purchase products across various categories while leveraging the dynamic (asynchronous) capabilities of modern web applications.
